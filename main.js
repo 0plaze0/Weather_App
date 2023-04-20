@@ -1,4 +1,7 @@
+import CurrentLocation from "./currentLocation.js";
 import { getDataFromSearch } from "./script/domFunction.js";
+
+const currentLoc = new CurrentLocation();
 
 const initApp = () => {
   const searchBar = document.getElementById("search__form");
@@ -8,6 +11,6 @@ const initApp = () => {
 const getDataFromUser = (event) => {
   event.preventDefault();
   const location = getDataFromSearch();
-  return location;
+  currentLoc.location = location;
 };
 initApp();

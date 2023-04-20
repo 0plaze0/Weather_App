@@ -4,6 +4,7 @@ export const getDataFromSearch = () => {
   return properText;
 };
 const toProperText = (text) => {
-  const properText = text[0].toUpperCase() + text.slice(1).toLowerCase(0);
+  const improperText = text;
+  const properText = text[0].toUpperCase() + text.slice(1).toLowerCase;
   return properText;
 };
