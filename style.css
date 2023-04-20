@@ -51,7 +51,7 @@ header .search__bar {
   border: none;
   border-radius: 20px;
   outline: none;
-  color: #6f6f79;
+  color: #000000;
 }
 ::placeholder {
   color: #6f6f79;
@@ -89,12 +89,7 @@ main .temp {
   top: 10%;
   left: 20%;
 }
-@media only screen and (max-width: 800px) {
-  main .temp {
-    font-size: 50px;
-  }
-}
-main .temp p {
+ain .temp p {
   position: relative;
   top: 3%;
   left: 1%;
@@ -124,4 +119,14 @@ footer {
   justify-content: space-around;
   align-items: center;
   margin-top: 20px;
+}
+@media only screen and (max-height: 800px) {
+  main .temp {
+    font-size: 30px;
+  }
+  main .weather-icon {
+    position: relative;
+    font-size: 60px;
+    bottom: 80px;
+  }
 }
