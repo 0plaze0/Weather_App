@@ -53,6 +53,7 @@ export const DisplayDataInApp = (weatherObj) => {
   addChild(wind, windValue, windText);
 
   addChild(footer, humidity, wind);
+  fadeIn();
 };
 /* 
 <footer id="footer">
@@ -66,6 +67,14 @@ export const DisplayDataInApp = (weatherObj) => {
         </div>
       </footer>
 */
+const fadeIn = () => {
+  const main = document.getElementById("main");
+  main.classList.toggle("zero-vis");
+  main.classList.toggle("fade-in");
+  const footer = document.getElementById("footer");
+  footer.classList.toggle("zero-vis");
+  footer.classList.toggle("fade-in");
+};
 
 const createElem = (tag, className) => {
   const Elem = document.createElement(tag);
@@ -96,7 +105,7 @@ const clearDisplay = (tag) => {
 const transformWeatherIcon = (i, icon) => {
   const firstTwoChars = icon.slice(0, 2);
   const lastChar = icon.slice(2);
-  console.log(firstTwoChars);
+  // console.log(firstTwoChars);
   switch (firstTwoChars) {
     case "01":
       if (lastChar === "d") {
