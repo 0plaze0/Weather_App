@@ -28,11 +28,13 @@ export const DisplayDataInApp = (weatherObj) => {
   content(LocationText, weatherObj.location);
 
   const icon = createElem("div", "weather-icon");
-  const iClass = transformWeatherIcon(weatherObj.icon);
+  const i = createElem("i");
+  const iClass = transformWeatherIcon(i, weatherObj.icon || "01d");
 
-  addChild(Location, LocationText);
   addChild(temp, tempValue, unit);
-  addChild(main, temp, Location);
+  addChild(Location, LocationText);
+  addChild(icon, i);
+  addChild(main, temp, Location, icon);
 
   //footer data
   clearDisplay(footer);
@@ -91,8 +93,53 @@ const clearDisplay = (tag) => {
   }
 };
 
-const transformWeatherIcon = (icon) => {
-  console.log(icon);
+const transformWeatherIcon = (i, icon) => {
+  const firstTwoChars = icon.slice(0, 2);
+  const lastChar = icon.slice(2);
+  console.log(firstTwoChars);
+  switch (firstTwoChars) {
+    case "01":
+      if (lastChar === "d") {
+        i.classList.add("fa", "fa-sun-o");
+      } else {
+        i.classList.add("fa", "fa-moon");
+      }
+      break;
+    case "02":
+      if (lastChar === "d") {
+        i.classList.add("fa", "fa-cloud-sun");
+      } else {
+        i.classList.add("fa", "fa-cloud-moon");
+      }
+      break;
+    case "03":
+      i.classList.add("fa-solid", "fa-cloud");
+      break;
+    case "04":
+      i.classList.add("fa-brands", "fa-soundcloud");
+      break;
+    case "09":
+      i.classList.add("fa-solid", "fa-cloud-showers-water");
+      break;
+    case "10":
+      if (lastChar === "d") {
+        i.classList.add("fa-solid", "fa-cloud-sun-rain");
+      } else {
+        i.classList.add("fa-solid", "fa-cloud-moon-rain");
+      }
+      break;
+    case "11":
+      i.classList.add("fa-solid", "fa-cloud-bolt");
+      break;
+    case "13":
+      i.classList.add("fa-solid", "fa-snowflake");
+      break;
+    case "50":
+      i.classList.add("fa-solid", "fa-bars-staggered");
+      break;
+    default:
+      i.classList.add("far", "fa-question");
+  }
 };
 
 // const div = document.createElement("div");
