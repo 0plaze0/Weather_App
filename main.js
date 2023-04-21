@@ -1,15 +1,14 @@
 import CurrentLocation from "./currentLocation.js";
 import { getDataFromApi } from "./DataFunction.js";
-import { getDataFromSearch } from "./script/domFunction.js";
+import { getDataFromSearch, DisplayDataInApp } from "./script/domFunction.js";
 
 const currentLoc = new CurrentLocation();
 
 const initApp = () => {
   const searchBar = document.getElementById("search__form");
   searchBar.addEventListener("submit", getDataFromUser);
-  console.log(currentLoc.location);
   getDataFromApi(currentLoc);
-  // DisplayDataInApp();
+  DisplayDataInApp(currentLoc);
 };
 
 const getDataFromUser = (event) => {

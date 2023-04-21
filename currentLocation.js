@@ -3,11 +3,13 @@ export default class CurrentLocation {
   #temp;
   #humidity;
   #wind;
+  #icon;
   constructor() {
     this.#location = null;
     this.#temp = null;
     this.#humidity = null;
     this.#wind = null;
+    this.#icon = null;
   }
   get location() {
     return this.#location;
@@ -32,5 +34,11 @@ export default class CurrentLocation {
   }
   set wind(wind) {
     this.#wind = wind;
+  }
+  get icon() {
+    return this.#icon;
+  }
+  set icon(icon) {
+    this.#icon = icon;
   }
 }
