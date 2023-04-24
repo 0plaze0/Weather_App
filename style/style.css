@@ -52,6 +52,7 @@ header .search__bar {
   border-radius: 20px;
   outline: none;
   color: #000000;
+  outline:none;
 }
 ::placeholder {
   color: #6f6f79;
